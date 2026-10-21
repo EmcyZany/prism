@@ -104,8 +104,8 @@ html[data-theme="dark"] .hero .sub{color:var(--lav)}
 .bloom-cap b{color:var(--ink); font-family:"Sora",sans-serif}
 
 /* ---------- scroll sequence ---------- */
-.seq{height:340vh; position:relative}
-.seq-sticky{position:sticky; top:66px; height:calc(100vh - 66px); display:flex; flex-direction:column; justify-content:center; overflow:hidden}
+.seq{height:340vh; height:340dvh; position:relative}
+.seq-sticky{position:sticky; top:66px; height:calc(100vh - 66px); height:calc(100dvh - 66px); display:flex; flex-direction:column; justify-content:center; overflow:hidden}
 .seq-track{position:relative; height:300px}
 .seq-panel{position:absolute; inset:0; display:grid; grid-template-columns:180px 1fr 1fr; gap:36px; align-items:center; opacity:0; transform:translateY(34px); pointer-events:none}
 .seq-panel.on{pointer-events:auto}
@@ -117,8 +117,9 @@ html[data-theme="dark"] .seq-panel .big{color:transparent}
 .seq-progress{height:2px; background:var(--line2); margin-top:44px; position:relative}
 .seq-progress i{position:absolute; left:0; top:0; bottom:0; width:0; background:var(--violet)}
 .seq.static{height:auto}
-.seq.static .seq-sticky{position:static; height:auto; padding:40px 0}
-.seq.static .seq-panel{position:relative; opacity:1; transform:none; margin-bottom:34px}
+.seq.static .seq-sticky{position:static; height:auto; padding:40px 0; overflow:visible}
+.seq.static .seq-track{height:auto}
+.seq.static .seq-panel{position:relative; opacity:1; transform:none; margin-bottom:34px; pointer-events:auto}
 
 /* ---------- generic cards / grids ---------- */
 .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:20px}
@@ -275,6 +276,12 @@ footer a:hover{color:var(--deep); text-decoration:underline}
   .foot-grid{grid-template-columns:1fr}
   .sponsor{flex-direction:column; align-items:flex-start}
   section{padding:60px 0}
+  /* Scroll sequence becomes a plain stacked list on small screens — no sticky scrub */
+  .seq{height:auto}
+  .seq .seq-sticky{position:static; height:auto; padding:40px 0; overflow:visible}
+  .seq .seq-track{height:auto}
+  .seq .seq-panel{position:relative; opacity:1; transform:none; margin-bottom:34px; pointer-events:auto}
+  .seq .seq-progress{display:none}
 }
 @media(max-width:1020px){ #typesGrid{grid-template-columns:1fr 1fr !important} }
 @media(max-width:560px){

@@ -115,7 +115,7 @@
       </div>
       <div class="seq-progress" aria-hidden="true"><i id="seqBar"></i></div>
     </div></div></div>
-    <noscript><style>.seq{height:auto}.seq-sticky{position:static;height:auto;padding:30px 0}.seq-panel{position:relative;opacity:1;transform:none;margin-bottom:30px}</style></noscript>
+    <noscript><style>.seq{height:auto}.seq-sticky{position:static;height:auto;padding:30px 0;overflow:visible}.seq-track{height:auto}.seq-panel{position:relative;opacity:1;transform:none;margin-bottom:30px;pointer-events:auto}.seq-progress{display:none}</style></noscript>
   </section>
 
   <!-- FEATURES -->
@@ -299,31 +299,56 @@ if(bcv){
   window.animate(bcv, drawBloom);
   window.onTheme(function(){ if(RM) drawBloom(0); });
 }
-/* ---------- Scroll-scrubbed ecosystem sequence ---------- */
+/* ---------- Scroll-scrubbed ecosystem sequence (desktop only) ----------
+   Progress is measured over the sticky element's real travel distance:
+   travel = seq height − sticky height, starting when the seq top reaches
+   the sticky's top offset. Panels fade in a window that never overlaps the
+   neighbouring panel (full opacity within |d|<=0.2, zero at |d|>=0.5), so
+   exactly one panel is readable at a time. On small screens (<=860px) and
+   under reduced motion the sequence is a static stacked list instead. */
 var seq=document.getElementById('seq');
 if(seq){
   var panels=seq.querySelectorAll('.seq-panel'), bar=document.getElementById('seqBar');
-  if(RM){ seq.classList.add('static'); }
-  else{
-    var ticking=false;
-    function update(){
-      ticking=false;
-      var r=seq.getBoundingClientRect();
-      var total=seq.offsetHeight - window.innerHeight + 66;
-      var p = Math.min(1, Math.max(0, -r.top / Math.max(1,total)));
-      var pos = p*(panels.length-1);
-      panels.forEach(function(pn,i){
-        var d=Math.abs(i-pos);
-        pn.style.opacity = String(Math.max(0, 1 - d*1.5));
-        pn.style.transform = 'translateY('+((i-pos)*30)+'px)';
-        pn.classList.toggle('on', d<0.5);
-      });
-      if(bar) bar.style.width = (p*100)+'%';
-    }
-    window.addEventListener('scroll', function(){ if(!ticking){ ticking=true; requestAnimationFrame(update); } }, {passive:true});
-    window.addEventListener('resize', update);
-    update();
+  var stickyEl=seq.querySelector('.seq-sticky');
+  var smallMQ = window.matchMedia('(max-width: 860px)');
+  var topOff = 66;
+  function measure(){ var t=parseFloat(window.getComputedStyle(stickyEl).top); if(!isNaN(t)) topOff=t; }
+  function isStatic(){ return RM || smallMQ.matches; }
+  function clearPanels(){
+    panels.forEach(function(pn){
+      pn.style.opacity=''; pn.style.transform=''; pn.style.visibility='';
+      pn.classList.add('on');
+    });
+    if(bar) bar.style.width='';
   }
+  var ticking=false;
+  function update(){
+    ticking=false;
+    if(isStatic()) return;
+    var travel = Math.max(1, seq.offsetHeight - stickyEl.offsetHeight);
+    var r = seq.getBoundingClientRect();
+    var p = Math.min(1, Math.max(0, (topOff - r.top) / travel));
+    var pos = p*(panels.length-1);
+    panels.forEach(function(pn,i){
+      var d = Math.abs(i-pos);
+      var op = Math.max(0, Math.min(1, (0.5 - d)/0.3));
+      pn.style.opacity = String(op);
+      pn.style.transform = 'translateY('+((i-pos)*24)+'px)';
+      pn.style.visibility = op>0 ? 'visible' : 'hidden';
+      pn.classList.toggle('on', d<0.5);
+    });
+    if(bar) bar.style.width = (p*100)+'%';
+  }
+  function applyMode(){
+    measure();
+    if(isStatic()){ seq.classList.add('static'); clearPanels(); }
+    else{ seq.classList.remove('static'); update(); }
+  }
+  window.addEventListener('scroll', function(){ if(!ticking){ ticking=true; requestAnimationFrame(update); } }, {passive:true});
+  window.addEventListener('resize', applyMode);
+  if(smallMQ.addEventListener) smallMQ.addEventListener('change', applyMode);
+  else if(smallMQ.addListener) smallMQ.addListener(applyMode);
+  applyMode();
 }
 })();
 </script>
