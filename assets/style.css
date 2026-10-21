@@ -105,6 +105,7 @@ html[data-theme="dark"] .hero .sub{color:var(--lav)}
 
 /* ---------- scroll sequence ---------- */
 .seq{height:340vh; height:340dvh; position:relative}
+.seq>.wrap{height:100%}
 .seq-sticky{position:sticky; top:66px; height:calc(100vh - 66px); height:calc(100dvh - 66px); display:flex; flex-direction:column; justify-content:center; overflow:hidden}
 .seq-track{position:relative; height:300px}
 .seq-panel{position:absolute; inset:0; display:grid; grid-template-columns:180px 1fr 1fr; gap:36px; align-items:center; opacity:0; transform:translateY(34px); pointer-events:none}
