@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deep — PRISM</title>
+<meta name="description" content="PRISM concept: Deep Funding — 98 Ethereum repositories as a field of light.">
+<script>(function(){var t='light';try{var q=new URLSearchParams(location.search).get('theme');if(q==='dark'||q==='light'){t=q;localStorage.setItem('prism-theme',t);}else{var s=localStorage.getItem('prism-theme');if(s==='dark'||s==='light')t=s;}}catch(e){}document.documentElement.setAttribute('data-theme',t);})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="nav"><div class="navin">
+  <a class="brand" href="../index.html" aria-label="Seer home">
+    <svg class="crow" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M33.5 10.5 A16.5 16.5 0 1 0 33.5 37.5"/><path d="M38 2.5 L39.3 6.7 L43.5 8 L39.3 9.3 L38 13.5 L36.7 9.3 L32.5 8 L36.7 6.7 Z" fill="currentColor" stroke="none"/><path d="M16.5 36.5 C13.8 28.5 16.8 19.8 24.2 16.2 C27.6 14.5 31.6 14.8 34.2 17 L29.7 19.7 C31 22.7 30 26 27.4 28.1"/><path d="M18.6 28.6 C21.6 25.9 25.2 25.3 28.2 26.5"/><path d="M16.5 36.5 C19.8 38.2 23.8 38.3 27.2 36.8"/><path d="M17.2 35.8 L12.2 41.2"/><circle cx="27.6" cy="17.6" r="1.15" fill="currentColor" stroke="none"/></svg>
+    <span class="wordmark">SEER</span>
+  </a>
+  <a class="edition" href="../index.html" aria-label="PRISM edition home">
+    <svg viewBox="0 0 64 40" fill="none" aria-hidden="true"><path d="M27.5 19.2 L63 13.5 L63 18.6 L27.5 21 Z" fill="#EFE9FC"/><path d="M27.5 21 L63 19.6 L63 25.2 L27.5 22.8 Z" fill="#7D33FF"/><path d="M27.5 22.8 L63 26.2 L63 32 L27.5 24.6 Z" fill="#6C2BD9"/><path d="M32 3 L56 37 L8 37 Z" stroke="currentColor" stroke-width="1.8"/><path d="M32 3 L32 24 M32 24 L17.5 30.5 M32 24 L46.5 30.5 M17.5 30.5 L46.5 30.5" stroke="currentColor" stroke-width="1.1" opacity=".55"/><path d="M1 27 L27.5 20.6" stroke="currentColor" stroke-width="1.6"/></svg>
+    <span>PRISM</span>
+  </a>
+  <nav class="navlinks" aria-label="Interfaces">
+    <a href="../index.html">Home</a>
+    <a href="../app/index.html">App</a>
+    <a href="index.html" aria-current="page">Deep</a>
+    <a href="../futarchy/index.html">Futarchy</a>
+    <a href="../opportunity/index.html">Opportunity</a>
+    <a href="../risk/index.html">Risk</a>
+  </nav>
+  <div class="navright">
+    <button class="iconbtn" id="themeToggle" type="button" aria-pressed="false" aria-label="Switch to dark mode">
+      <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M20 13.2 A8.5 8.5 0 1 1 10.8 4 A6.8 6.8 0 0 0 20 13.2 Z"/></svg>
+      <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" style="display:none"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5 V5 M12 19 V21.5 M2.5 12 H5 M19 12 H21.5 M5 5 L6.8 6.8 M17.2 17.2 L19 19 M19 5 L17.2 6.8 M6.8 17.2 L5 19"/></svg>
+    </button>
+    <button class="btn btn-primary" type="button" data-wallet>Connect Wallet</button>
+    <button class="iconbtn navtoggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7 H20 M4 12 H20 M4 17 H20"/></svg>
+    </button>
+  </div>
+</div></header>
+
+<main><div class="wrap">
+  <div class="pagehead">
+    <p class="kicker">Deep · AI Prediction Markets · Optimism</p>
+    <h1>The field, lit dot by dot.</h1>
+    <p class="lede">Deep Funding — Round 3 · Originality LIVE. Ninety-eight Ethereum repositories, one market each: how much of a repo is original work (Up), and how much rides on its dependencies (Down)? In PRISM the field is a grid of light — a dot's size and brightness <em>is</em> its weight. $350,000 distributed by the programme; every market settles in sUSDS.</p>
+  </div>
+
+  <div class="deep-layout" style="margin-top:36px">
+    <div class="dotbox">
+      <canvas id="dotField" height="360" role="img" aria-label="Dot field of 98 repositories. Each dot's size and brightness represents the repository's Up value — its share of original work. The full data is in the table below."></canvas>
+      <span class="fieldtag">Gradient dots — hover a dot, find its row</span>
+      <div class="dottip" id="dotTip"></div>
+    </div>
+    <div style="display:grid; gap:22px">
+      <div class="walletcard">
+        <p class="kicker" style="color:#EFE9FC">For agents</p>
+        <h3>Create a trade wallet</h3>
+        <p>One wallet that batches hundreds of trades in a single run — built for AI agents forecasting how evaluators will assess grant-worthy work.</p>
+        <button class="btn btn-primary" type="button" id="walletBtn" style="margin-top:8px">Create a trade wallet</button>
+      </div>
+      <div class="card">
+        <h3>Your predictions</h3>
+        <p style="margin-bottom:16px">Upload predictions (CSV) to price the whole field at once, or export the current market weights.</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap">
+          <label class="filebtn" for="csvFile">Upload predictions (CSV)</label>
+          <input type="file" id="csvFile" accept=".csv,text/csv" class="sr" style="position:absolute; width:1px; height:1px; overflow:hidden; opacity:0">
+          <button class="btn btn-ghost btn-sm" type="button" id="exportBtn">Export market weights</button>
+        </div>
+        <p style="font-size:13px; margin-top:14px">CSV format: <span class="mono">repository, up, down</span> — matching rows update the field and the table.</p>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="sec-head"><span class="idx">·</span><h2>The 98-repo field</h2><p>Live values captured from deep.seer.pm. Up · original work — Down · dependencies. Weights across the field sum to 1.</p></div>
+    <div class="toolbar" style="margin-top:0">
+      <input type="search" id="repoQ" placeholder="Filter repositories…" aria-label="Filter repositories">
+      <span class="mono" id="repoCount" style="font-size:13px; color:var(--ink2)"></span>
+    </div>
+    <div class="tablewrap" style="max-height:560px; overflow:auto">
+      <table id="repoTable">
+        <thead><tr><th>Repository</th><th class="num">Up · Original work</th><th class="num">Down · Dependencies</th><th class="num">Balance</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="grid3">
+      <article class="card"><h3>How it resolves</h3><p>Humans resolve the market: an expert jury compares repositories pairwise, and the market's weights are checked against their judgement of original work.</p></article>
+      <article class="card"><h3>Original work, over time</h3><p>The live product charts each repository's share of original work over time — in PRISM, the light sweep across the field plays that role: a slow read of where the weight sits now.</p></article>
+      <article class="card"><h3>One network, one collateral</h3><p>Optimism is the only network these contests run on, and sUSDS settles every market. Browse any repo's markets in the <a href="../app/index.html">Seer App</a>.</p></article>
+    </div>
+  </section>
+</div></main>
+
+<footer><div class="wrap">
+  <div class="foot-grid">
+    <div>
+      <svg class="crow" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M33.5 10.5 A16.5 16.5 0 1 0 33.5 37.5"/><path d="M38 2.5 L39.3 6.7 L43.5 8 L39.3 9.3 L38 13.5 L36.7 9.3 L32.5 8 L36.7 6.7 Z" fill="currentColor" stroke="none"/><path d="M16.5 36.5 C13.8 28.5 16.8 19.8 24.2 16.2 C27.6 14.5 31.6 14.8 34.2 17 L29.7 19.7 C31 22.7 30 26 27.4 28.1"/><path d="M18.6 28.6 C21.6 25.9 25.2 25.3 28.2 26.5"/><path d="M16.5 36.5 C19.8 38.2 23.8 38.3 27.2 36.8"/><path d="M17.2 35.8 L12.2 41.2"/><circle cx="27.6" cy="17.6" r="1.15" fill="currentColor" stroke="none"/></svg>
+      <p style="color:var(--ink2); font-size:14.5px; max-width:340px; margin:14px 0 0">Deep Funding — AI prediction markets for Ethereum's public goods. Secured by Kleros.</p>
+    </div>
+    <div>
+      <h4>Interfaces</h4>
+      <ul>
+        <li><a href="../index.html">Homepage</a></li>
+        <li><a href="../app/index.html">Seer App</a></li>
+        <li><a href="../futarchy/index.html">Futarchy</a></li>
+        <li><a href="../opportunity/index.html">Opportunity Markets</a></li>
+        <li><a href="../risk/index.html">Risk Pricing</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="mailto:info@seer.pm">info@seer.pm</a></li>
+        <li><a href="https://github.com/seer-pm" rel="noopener">GitHub</a></li>
+        <li><a href="https://x.com/seer_pm" rel="noopener">X (Twitter)</a></li>
+        <li><a href="https://t.me/seer_pm" rel="noopener">Telegram</a></li>
+        <li><a href="https://discord.gg/seer" rel="noopener">Discord</a></li>
+        <li><a href="https://medium.com" rel="noopener">Medium</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-note">
+    <svg viewBox="0 0 64 40" fill="none" aria-hidden="true"><path d="M27.5 19.2 L63 13.5 L63 18.6 L27.5 21 Z" fill="#EFE9FC"/><path d="M27.5 21 L63 19.6 L63 25.2 L27.5 22.8 Z" fill="#7D33FF"/><path d="M27.5 22.8 L63 26.2 L63 32 L27.5 24.6 Z" fill="#6C2BD9"/><path d="M32 3 L56 37 L8 37 Z" stroke="currentColor" stroke-width="1.8"/><path d="M1 27 L27.5 20.6" stroke="currentColor" stroke-width="1.6"/></svg>
+    <span><strong>PRISM</strong> — a design concept for Seer in the Electric Foundation system. Not affiliated with Seer.</span>
+  </div>
+</div></footer>
+
+<script src="../assets/app.js"></script>
+<script>
+(function(){
+'use strict';
+var RM = window.PRISM_RM;
+var RAW = "ethereum/py_ecc|.7043|.2242\nblockscout/blockscout|.6526|.2960\nLFDT-web3j/web3j|.7325|.2120\nherumi/mcl|.7903|.1468\npaulmillr/noble-curves|.7692|.0822\narkworks-rs/algebra|.7954|.1168\nflashbots/rbuilder|.7180|.2776\nprotofire/solhint|.6442|.2890\nl2beat/l2beat|.6898|.2492\nConsensys/gnark-crypto|.8082|.1011\nVectorized/solady|.7734|.2266\ntaikoxyz/taiko-mono|.6769|.3457\nflashbots/mev-boost|.8003|.2197\nflashbots/mev-boost-relay|.7479|.2360\nethereum/js-ethereum-cryptography|.6915|.2500\nlibp2p/libp2p|.7436|.1922\nsupranational/blst|.8020|.1355\nwighawag/hardhat-deploy|.7299|.2345\nethstaker/eth-docker|.6545|.3465\nDefiLlama/DefiLlama-Adapters|.7315|.2051\nDefiLlama/chainlist|.6962|.2814\nCertora/CertoraProver|.7615|.2371\nPlonky3/Plonky3|.7260|.2311\nChainSafe/bls|.6871|.2991\nintellij-solidity/intellij-solidity|.7658|.2447\ndappnode/DAppNode|.5665|.2948\nwealdtech/ethdo|.7349|.2654\nlambdaclass/lambdaworks|.7179|.2441\nsmartcontracts/simple-optimism-node|.6701|.3285\nskalenetwork/libBLS|.7803|.2296\nshazow/whatsabi|.6722|.2421\nTrueBlocks/trueblocks-core|.7369|.2069\nEspressoSystems/jellyfish|.6818|.3935\na16z/halmos|.7286|.2412\nsuccinctlabs/op-succinct|.5464|.2743\nsuccinctlabs/sp1|.6639|.2945\notterscan/otterscan|.7106|.2317\nlambdaclass/ethrex|.7587|.2100\nNethermindEth/juno|.6800|.2333\nCommit-Boost/commit-boost-client|.7437|.2292\nCyfrin/aderyn|.7384|.2486\n0xMiden/miden-vm|.7233|.2484\nholiman/goevmlab|.6531|.2644\nedb-rs/edb|.7155|.2886\nevmts/tevm-monorepo|.6732|.3389\nsuccinctlabs/rsp|.6446|.2528\naestus-relay/mev-boost-relay|.6998|.2265\nOffchainLabs/stylus-sdk-rs|.6667|.2846\nethstaker/ethstaker-deposit-cli|.7473|.2239\ndl-solarity/solidity-lib|.7104|.2312\nrisc0/risc0-ethereum|.6566|.2712\npowdr-labs/powdr|.7225|.2486\naxiom-crypto/snark-verifier|.6820|.2649\nswiss-knife-xyz/swiss-knife|.7594|.2556\na16z/helios|.7075|.2468\nalloy-rs/alloy|.7141|.2406\napeworx/ape|.7573|.2415\nchainsafe/lodestar|.7902|.2098\nconsensys/teku|.8020|.1955\nerigontech/erigon|.7668|.2316\neth-infinitism/account-abstraction|.7110|.2528\nethereum-lists/chains|.7271|.2630\nethereum/consensus-specs|.8499|.1488\nethereum/eips|.7962|.1987\nipsilon/evmone|.7560|.2536\nethereum/execution-apis|.7663|.2337\nargotorg/fe|.7056|.3008\nethereum/go-ethereum|.7992|.1992\nremix-project-org/remix-project|.7249|.1991\nargotorg/solidity|.7986|.2021\nargotorg/sourcify|.7603|.2481\nethereum/web3.py|.7719|.2177\nethers-io/ethers.js|.8230|.2019\nfoundry-rs/foundry|.8008|.2198\ngrandinetech/grandine|.7573|.2300\nhyperledger-web3j/web3j|.7423|.2679\nhyperledger/besu|.7480|.2357\nnethereum/nethereum|.7892|.2150\nnethermindeth/nethermind|.7359|.2702\nnomicfoundation/hardhat|.7111|.2920\nopenzeppelin/openzeppelin-contracts|.7698|.2305\nparadigmxyz/reth|.7725|.2276\nOffchainLabs/prysm|.7171|.2643\nsafe-global/safe-smart-account|.6643|.3382\nscaffold-eth/scaffold-eth-2|.6889|.2754\nsigp/lighthouse|.8261|.1873\nstatus-im/nimbus-eth2|.8249|.1868\nvyperlang/titanoboa|.7671|.2440\nvyperlang/vyper|.7697|.1774\nwevm/viem|.6903|.2437\nargotorg/hevm|.7725|.2153\nethdebug/format|.7323|.2418\nargotorg/act|.7379|.2676\nethpandaops/ethereum-package|.6566|.3245\nethpandaops/ethereum-helm-charts|.5562|.3703\nethpandaops/checkpointz|.5463|.3770\nlambdaclass/lambda_ethereum_consensus|.7507|.2437\nerigontech/silkworm|.7474|.2469";
+var REPOS = RAW.split("\n").map(function(l){ var p=l.split("|"); return {name:p[0], up:parseFloat(p[1]), down:parseFloat(p[2])}; });
+var tbody = document.querySelector('#repoTable tbody');
+var countEl = document.getElementById('repoCount');
+var hoverIdx = -1;
+function fmt(v){ return v.toFixed(4); }
+function renderTable(filter){
+  var n=0;
+  tbody.innerHTML = REPOS.map(function(r,i){
+    var ok = !filter || r.name.toLowerCase().indexOf(filter)>-1;
+    if(ok) n++;
+    return '<tr data-i="'+i+'" '+(ok?'':'hidden')+' tabindex="0"><td>'+r.name+'</td><td class="num up">'+fmt(r.up)+'</td><td class="num">'+fmt(r.down)+'</td><td class="num">—</td></tr>';
+  }).join('');
+  countEl.textContent = n+' of '+REPOS.length+' repositories';
+  tbody.querySelectorAll('tr').forEach(function(tr){
+    var i=+tr.getAttribute('data-i');
+    tr.addEventListener('mouseenter', function(){ setHover(i,false); });
+    tr.addEventListener('mouseleave', function(){ setHover(-1,false); });
+    tr.addEventListener('focus', function(){ setHover(i,false); });
+    tr.addEventListener('click', function(){ setHover(i,true); });
+  });
+}
+function setHover(i, fromDot){
+  hoverIdx=i;
+  tbody.querySelectorAll('tr').forEach(function(tr){ tr.classList.toggle('hl', +tr.getAttribute('data-i')===i); });
+  if(i>=0 && fromDot){
+    var tr=tbody.querySelector('tr[data-i="'+i+'"]');
+    if(tr) tr.scrollIntoView({block:'nearest', behavior: RM?'auto':'smooth'});
+  }
+  if(RM) drawDots(0);
+}
+renderTable('');
+document.getElementById('repoQ').addEventListener('input', function(e){ renderTable(e.target.value.trim().toLowerCase()); });
+/* ---------------- Gradient Dots field ---------------- */
+var cv=document.getElementById('dotField'), tip=document.getElementById('dotTip');
+var COLS=14, ROWS=7, geom={x:[],y:[],cw:0,ch:0};
+function layout(w,h){
+  geom.cw=w/COLS; geom.ch=h/ROWS; geom.x=[]; geom.y=[];
+  for(var i=0;i<REPOS.length;i++){
+    geom.x.push((i%COLS+0.5)*geom.cw);
+    geom.y.push((Math.floor(i/COLS)+0.5)*geom.ch);
+  }
+}
+function drawDots(t){
+  var f=window.fitCanvas(cv,360), c=f.ctx, w=f.w, h=f.h;
+  layout(w,h);
+  c.clearRect(0,0,w,h);
+  var dark=window.prismTheme()==='dark';
+  /* slow light sweep — a torch moving under paper */
+  var lx = w*(0.5+0.42*Math.sin(t*0.16)), ly = h*(0.5+0.4*Math.sin(t*0.11+1.7));
+  if(RM){ lx=w*0.38; ly=h*0.42; }
+  for(var i=0;i<REPOS.length;i++){
+    var r=REPOS[i], x=geom.x[i], y=geom.y[i];
+    var dx=x-lx, dy=y-ly, d=Math.sqrt(dx*dx+dy*dy);
+    var sweep=Math.exp(-d/(w*0.24));
+    var rad = 2.6 + r.up*7.5 + sweep*3.4;
+    var alpha = 0.22 + r.up*0.62 + sweep*0.3;
+    c.beginPath(); c.arc(x,y,rad,0,7);
+    c.fillStyle = 'rgba(125,51,255,'+Math.min(1,alpha)+')'; c.fill();
+    if(i===hoverIdx){
+      c.beginPath(); c.arc(x,y,rad+4.5,0,7);
+      c.strokeStyle = dark? '#EFE9FC':'#6C2BD9'; c.lineWidth=1.8; c.stroke();
+      c.beginPath(); c.arc(x,y,rad,0,7); c.fillStyle='#6C2BD9'; c.fill();
+    }
+  }
+}
+function pickDot(e){
+  var r=cv.getBoundingClientRect(), mx=e.clientX-r.left, my=e.clientY-r.top;
+  var best=-1, bd=1e9;
+  for(var i=0;i<REPOS.length;i++){ var dx=geom.x[i]-mx, dy=geom.y[i]-my, d=dx*dx+dy*dy; if(d<bd){bd=d;best=i;} }
+  return (best>=0 && bd < Math.pow(Math.max(geom.cw,geom.ch)*0.62,2)) ? best : -1;
+}
+cv.addEventListener('pointermove', function(e){
+  var i=pickDot(e);
+  if(i>=0){
+    var r=REPOS[i], b=cv.getBoundingClientRect();
+    tip.style.display='block';
+    tip.style.left=Math.min(b.width-180, geom.x[i]+14)+'px';
+    tip.style.top=(geom.y[i]-8)+'px';
+    tip.textContent=r.name+' · Up '+fmt(r.up)+' · Down '+fmt(r.down);
+    if(i!==hoverIdx) setHover(i,false);
+  } else { tip.style.display='none'; if(hoverIdx>=0) setHover(-1,false); }
+});
+cv.addEventListener('pointerleave', function(){ tip.style.display='none'; setHover(-1,false); });
+cv.addEventListener('click', function(e){ var i=pickDot(e); if(i>=0) setHover(i,true); });
+window.animate(cv, drawDots);
+window.onTheme(function(){ if(RM) drawDots(0); });
+/* ---------------- CSV + wallet ---------------- */
+document.getElementById('exportBtn').addEventListener('click', function(){
+  var csv='repository,up,down\n'+REPOS.map(function(r){ return r.name+','+fmt(r.up)+','+fmt(r.down); }).join('\n');
+  window.downloadText('deep-market-weights.csv', csv);
+  toast('Market weights exported — '+REPOS.length+' repositories.');
+});
+document.getElementById('csvFile').addEventListener('change', function(e){
+  var file=e.target.files[0]; if(!file) return;
+  var rd=new FileReader();
+  rd.onload=function(){
+    var lines=String(rd.result).split(/\r?\n/), updated=0;
+    lines.forEach(function(l){
+      var p=l.split(','); if(p.length<3) return;
+      var name=p[0].trim(), up=parseFloat(p[1]), dn=parseFloat(p[2]);
+      for(var i=0;i<REPOS.length;i++){
+        if(REPOS[i].name.toLowerCase()===name.toLowerCase() && isFinite(up) && isFinite(dn)){
+          REPOS[i].up=up; REPOS[i].down=dn; updated++;
+        }
+      }
+    });
+    renderTable(document.getElementById('repoQ').value.trim().toLowerCase());
+    if(RM) drawDots(0);
+    toast(updated? ('Predictions uploaded — '+updated+' repositories updated.') : 'No matching repositories found in that CSV.');
+  };
+  rd.readAsText(file);
+  e.target.value='';
+});
+document.getElementById('walletBtn').addEventListener('click', function(){ toast('Demo only — trade wallet creation is disabled in this design concept.'); });
+})();
+</script>
+</body>
+</html>

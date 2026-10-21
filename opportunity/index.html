@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opportunity Markets — PRISM</title>
+<meta name="description" content="PRISM concept: Opportunity Markets — submissions on a rail, price as triage, sponsor decides.">
+<script>(function(){var t='light';try{var q=new URLSearchParams(location.search).get('theme');if(q==='dark'||q==='light'){t=q;localStorage.setItem('prism-theme',t);}else{var s=localStorage.getItem('prism-theme');if(s==='dark'||s==='light')t=s;}}catch(e){}document.documentElement.setAttribute('data-theme',t);})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="nav"><div class="navin">
+  <a class="brand" href="../index.html" aria-label="Seer home">
+    <svg class="crow" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M33.5 10.5 A16.5 16.5 0 1 0 33.5 37.5"/><path d="M38 2.5 L39.3 6.7 L43.5 8 L39.3 9.3 L38 13.5 L36.7 9.3 L32.5 8 L36.7 6.7 Z" fill="currentColor" stroke="none"/><path d="M16.5 36.5 C13.8 28.5 16.8 19.8 24.2 16.2 C27.6 14.5 31.6 14.8 34.2 17 L29.7 19.7 C31 22.7 30 26 27.4 28.1"/><path d="M18.6 28.6 C21.6 25.9 25.2 25.3 28.2 26.5"/><path d="M16.5 36.5 C19.8 38.2 23.8 38.3 27.2 36.8"/><path d="M17.2 35.8 L12.2 41.2"/><circle cx="27.6" cy="17.6" r="1.15" fill="currentColor" stroke="none"/></svg>
+    <span class="wordmark">SEER</span>
+  </a>
+  <a class="edition" href="../index.html" aria-label="PRISM edition home">
+    <svg viewBox="0 0 64 40" fill="none" aria-hidden="true"><path d="M27.5 19.2 L63 13.5 L63 18.6 L27.5 21 Z" fill="#EFE9FC"/><path d="M27.5 21 L63 19.6 L63 25.2 L27.5 22.8 Z" fill="#7D33FF"/><path d="M27.5 22.8 L63 26.2 L63 32 L27.5 24.6 Z" fill="#6C2BD9"/><path d="M32 3 L56 37 L8 37 Z" stroke="currentColor" stroke-width="1.8"/><path d="M32 3 L32 24 M32 24 L17.5 30.5 M32 24 L46.5 30.5 M17.5 30.5 L46.5 30.5" stroke="currentColor" stroke-width="1.1" opacity=".55"/><path d="M1 27 L27.5 20.6" stroke="currentColor" stroke-width="1.6"/></svg>
+    <span>PRISM</span>
+  </a>
+  <nav class="navlinks" aria-label="Interfaces">
+    <a href="../index.html">Home</a>
+    <a href="../app/index.html">App</a>
+    <a href="../deep/index.html">Deep</a>
+    <a href="../futarchy/index.html">Futarchy</a>
+    <a href="index.html" aria-current="page">Opportunity</a>
+    <a href="../risk/index.html">Risk</a>
+  </nav>
+  <div class="navright">
+    <button class="iconbtn" id="themeToggle" type="button" aria-pressed="false" aria-label="Switch to dark mode">
+      <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M20 13.2 A8.5 8.5 0 1 1 10.8 4 A6.8 6.8 0 0 0 20 13.2 Z"/></svg>
+      <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" style="display:none"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5 V5 M12 19 V21.5 M2.5 12 H5 M19 12 H21.5 M5 5 L6.8 6.8 M17.2 17.2 L19 19 M19 5 L17.2 6.8 M6.8 17.2 L5 19"/></svg>
+    </button>
+    <button class="btn btn-primary" type="button" data-wallet>Connect Wallet</button>
+    <button class="iconbtn navtoggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7 H20 M4 12 H20 M4 17 H20"/></svg>
+    </button>
+  </div>
+</div></header>
+
+<main><div class="wrap">
+  <div class="pagehead">
+    <p class="kicker">Opportunity Markets</p>
+    <h1>With AI, the cost of reviewing work is more than the time it takes to do it</h1>
+    <p class="lede">Opportunity Markets turn any selection process into a market. Traders put money behind the submission they think will be selected, the odds move, and sponsors prioritize review on only top rated submissions.</p>
+  </div>
+
+  <section style="padding-top:40px">
+    <div class="sec-head"><span class="idx">·</span><h2>The pilot — Seer AI Job Board Name</h2><p>Markets live · ACTIVE · $2.39K liquidity · 235 outcomes · prices across the field sum to 100%</p></div>
+    <div class="cf-stage" id="cfStage" tabindex="0" role="group" aria-roledescription="carousel" aria-label="Submissions for the Seer AI Job Board Name market. Drag, or use the arrow keys, to browse."></div>
+    <div class="cf-nav">
+      <button class="iconbtn" type="button" id="cfPrev" aria-label="Previous submission"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="width:18px;height:18px"><path d="M15 5 L8 12 L15 19"/></svg></button>
+      <span class="count" id="cfCount">1 / 9</span>
+      <button class="iconbtn" type="button" id="cfNext" aria-label="Next submission"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="width:18px;height:18px"><path d="M9 5 L16 12 L9 19"/></svg></button>
+    </div>
+    <p style="text-align:center; color:var(--ink2); font-size:13.5px; margin-top:10px">A rail, not a feed — nothing here scrolls on its own. The sponsor walks the field at their own pace.</p>
+  </section>
+
+  <div class="sponsor" role="note">
+    <svg class="mark" width="52" height="52" viewBox="0 0 48 48" fill="none" stroke="#EFE9FC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M33.5 10.5 A16.5 16.5 0 1 0 33.5 37.5"/><path d="M38 2.5 L39.3 6.7 L43.5 8 L39.3 9.3 L38 13.5 L36.7 9.3 L32.5 8 L36.7 6.7 Z" fill="#EFE9FC" stroke="none"/><path d="M16.5 36.5 C13.8 28.5 16.8 19.8 24.2 16.2 C27.6 14.5 31.6 14.8 34.2 17 L29.7 19.7 C31 22.7 30 26 27.4 28.1"/><path d="M18.6 28.6 C21.6 25.9 25.2 25.3 28.2 26.5"/></svg>
+    <div>
+      <h3>The sponsor makes the final decision</h3>
+      <p>The market is a triage tool — it ranks, it never decides. However the rail is ordered, the final call on the AI job board's name belongs to the sponsor, and traders earn P&amp;L based on that decision.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="sec-head"><span class="idx">·</span><h2>Leaderboard</h2><p>Top of the field, of 235 outcomes</p></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th class="num">#</th><th>Submission</th><th class="num">Price</th><th class="num">Share of field</th><th>Status</th></tr></thead>
+      <tbody id="lbBody"></tbody>
+    </table></div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="sec-head"><span class="idx">·</span><h2>How it works</h2></div>
+    <div class="steps">
+      <div class="step"><span class="n">01</span><h3>Submissions</h3><p>Call for entries become submissions.</p></div>
+      <div class="step"><span class="n">02</span><h3>The odds</h3><p>Traders set the odds of selection.</p></div>
+      <div class="step"><span class="n">03</span><h3>Triage</h3><p>Price becomes a triage tool.</p></div>
+      <div class="step"><span class="n">04</span><h3>The decision</h3><p>Sponsor makes final decision.</p></div>
+      <div class="step"><span class="n">05</span><h3>P&amp;L</h3><p>Traders earn P&amp;L based on final decision.</p></div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="sec-head"><span class="idx">·</span><h2>The protocol</h2></div>
+    <div class="grid2">
+      <article class="card">
+        <h3>Closed beta today. Permissionless tomorrow.</h3>
+        <p>Seer has run opportunity markets for its rebrand and Devcon merch, and is now naming its AI job board. Any team crowdsourcing solutions and wanting to pick from only among the best should directly launch an opportunity market. Past markets — the rebrand and Devcon merch — are in the archive.</p>
+      </article>
+      <article class="card">
+        <h3>Roadmap</h3>
+        <p><strong>Today</strong> — Seer One operates it<br><strong>Next</strong> — Anyone launches<br><strong>Any decision</strong> — One shared layer</p>
+      </article>
+    </div>
+  </section>
+</div></main>
+
+<footer><div class="wrap">
+  <div class="foot-grid">
+    <div>
+      <svg class="crow" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M33.5 10.5 A16.5 16.5 0 1 0 33.5 37.5"/><path d="M38 2.5 L39.3 6.7 L43.5 8 L39.3 9.3 L38 13.5 L36.7 9.3 L32.5 8 L36.7 6.7 Z" fill="currentColor" stroke="none"/><path d="M16.5 36.5 C13.8 28.5 16.8 19.8 24.2 16.2 C27.6 14.5 31.6 14.8 34.2 17 L29.7 19.7 C31 22.7 30 26 27.4 28.1"/><path d="M18.6 28.6 C21.6 25.9 25.2 25.3 28.2 26.5"/><path d="M16.5 36.5 C19.8 38.2 23.8 38.3 27.2 36.8"/><path d="M17.2 35.8 L12.2 41.2"/><circle cx="27.6" cy="17.6" r="1.15" fill="currentColor" stroke="none"/></svg>
+      <p style="color:var(--ink2); font-size:14.5px; max-width:340px; margin:14px 0 0">Opportunity Markets — any selection process, priced. Secured by Kleros.</p>
+    </div>
+    <div>
+      <h4>Interfaces</h4>
+      <ul>
+        <li><a href="../index.html">Homepage</a></li>
+        <li><a href="../app/index.html">Seer App</a></li>
+        <li><a href="../deep/index.html">Deep</a></li>
+        <li><a href="../futarchy/index.html">Futarchy</a></li>
+        <li><a href="../risk/index.html">Risk Pricing</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="mailto:info@seer.pm">info@seer.pm</a></li>
+        <li><a href="https://github.com/seer-pm" rel="noopener">GitHub</a></li>
+        <li><a href="https://x.com/seer_pm" rel="noopener">X (Twitter)</a></li>
+        <li><a href="https://t.me/seer_pm" rel="noopener">Telegram</a></li>
+        <li><a href="https://discord.gg/seer" rel="noopener">Discord</a></li>
+        <li><a href="https://medium.com" rel="noopener">Medium</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-note">
+    <svg viewBox="0 0 64 40" fill="none" aria-hidden="true"><path d="M27.5 19.2 L63 13.5 L63 18.6 L27.5 21 Z" fill="#EFE9FC"/><path d="M27.5 21 L63 19.6 L63 25.2 L27.5 22.8 Z" fill="#7D33FF"/><path d="M27.5 22.8 L63 26.2 L63 32 L27.5 24.6 Z" fill="#6C2BD9"/><path d="M32 3 L56 37 L8 37 Z" stroke="currentColor" stroke-width="1.8"/><path d="M1 27 L27.5 20.6" stroke="currentColor" stroke-width="1.6"/></svg>
+    <span><strong>PRISM</strong> — a design concept for Seer in the Electric Foundation system. Not affiliated with Seer.</span>
+  </div>
+</div></footer>
+
+<script src="../assets/app.js"></script>
+<script>
+(function(){
+'use strict';
+var SUBS=[
+ {n:"Earnode", p:15.1, by:"@gig_hunter", d:"Earn + node — the job board as a node in the Seer network, paying out in signal."},
+ {n:"Gigray", p:10.4, by:"@raybuilds", d:"A ray of gigs. Short, bright, and it scans well in a nav bar."},
+ {n:"TalentDAO", p:9.6, by:"@dao_talent", d:"Speaks directly to the crypto-native teams who will post first."},
+ {n:"Seer Jobs", p:8.9, by:"@plainspoken", d:"The descriptive option — no explanation needed, ever."},
+ {n:"HireSignal", p:7.7, by:"@signalhire", d:"The market is the signal; the name says what the product does."},
+ {n:"Workmint", p:6.8, by:"@mintyfresh", d:"Work, minted. Plays on tokenisation without leaning on it."},
+ {n:"JobLoom", p:5.9, by:"@weaver", d:"Threads of work woven into one board."},
+ {n:"Craftly", p:5.2, by:"@craftlyco", d:"For the makers — a softer, craft-first positioning."},
+ {n:"RoleCall", p:4.6, by:"@rollcall", d:"Every role, called out and priced by the crowd."}
+];
+/* leaderboard */
+document.getElementById('lbBody').innerHTML = SUBS.map(function(s,i){
+  return '<tr><td class="num">'+(i+1)+'</td><td><strong>'+s.n+'</strong> <span style="color:var(--ink2)">'+s.by+'</span></td><td class="num pos">'+s.p.toFixed(1)+'%</td><td class="num">'+s.p.toFixed(1)+'%</td><td>'+(i===0?'Leading':'In review')+'</td></tr>';
+}).join('');
+/* ---------------- CoverFlow carousel ---------------- */
+var stage=document.getElementById('cfStage'), count=document.getElementById('cfCount');
+var RM=window.PRISM_RM;
+var pos=0, target=0;
+stage.innerHTML = SUBS.map(function(s,i){
+  return '<article class="cf-card" data-i="'+i+'" aria-hidden="true">'
+    +'<span class="tag v">Submission '+(i+1)+' · '+s.by+'</span>'
+    +'<span class="nm">'+s.n+'</span>'
+    +'<span class="pc">'+s.p.toFixed(1)+'%</span>'
+    +'<p>'+s.d+'</p>'
+    +'<p style="margin-top:auto" class="mono"><span style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink2)">Odds of selection</span></p>'
+    +'</article>';
+}).join('');
+var cards=Array.prototype.slice.call(stage.querySelectorAll('.cf-card'));
+function clampPos(v){ return Math.max(0, Math.min(SUBS.length-1, v)); }
+function layout(){
+  cards.forEach(function(card,i){
+    var off=i-pos, ao=Math.abs(off);
+    var rot=Math.max(-52, Math.min(52, off*-30));
+    card.style.transform='translateX('+(off*118)+'px) translateZ('+(-ao*120)+'px) rotateY('+rot+'deg)';
+    card.style.zIndex=String(100-Math.round(ao*10));
+    card.style.opacity= ao>3.4 ? '0' : String(1-ao*0.13);
+    card.style.pointerEvents= ao<0.5 ? 'auto':'none';
+    card.setAttribute('aria-hidden', String(ao>=0.5));
+  });
+  count.textContent=(Math.round(pos)+1)+' / '+SUBS.length;
+}
+function animatePos(){
+  if(RM){ pos=target; layout(); return; }
+  (function step(){
+    pos += (target-pos)*0.16;
+    if(Math.abs(target-pos)<0.002){ pos=target; layout(); return; }
+    layout(); requestAnimationFrame(step);
+  })();
+}
+function go(v){ target=clampPos(v); animatePos(); }
+document.getElementById('cfPrev').addEventListener('click', function(){ go(Math.round(target)-1); });
+document.getElementById('cfNext').addEventListener('click', function(){ go(Math.round(target)+1); });
+stage.addEventListener('keydown', function(e){
+  if(e.key==='ArrowLeft'){ go(Math.round(target)-1); e.preventDefault(); }
+  if(e.key==='ArrowRight'){ go(Math.round(target)+1); e.preventDefault(); }
+});
+var dragX=null, dragPos=0;
+stage.addEventListener('pointerdown', function(e){ dragX=e.clientX; dragPos=target; stage.setPointerCapture(e.pointerId); });
+stage.addEventListener('pointermove', function(e){
+  if(dragX===null) return;
+  target=clampPos(dragPos-(e.clientX-dragX)/118); pos=target; layout();
+});
+function endDrag(){ if(dragX===null) return; dragX=null; target=clampPos(Math.round(target)); animatePos(); }
+stage.addEventListener('pointerup', endDrag);
+stage.addEventListener('pointercancel', endDrag);
+cards.forEach(function(card){
+  card.addEventListener('click', function(){ toast('Demo only — trading is disabled in this design concept.'); });
+});
+layout();
+})();
+</script>
+</body>
+</html>

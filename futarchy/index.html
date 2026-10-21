@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Futarchy — PRISM</title>
+<meta name="description" content="PRISM concept: Futarchy — two conditional futures as two flowing waves.">
+<script>(function(){var t='light';try{var q=new URLSearchParams(location.search).get('theme');if(q==='dark'||q==='light'){t=q;localStorage.setItem('prism-theme',t);}else{var s=localStorage.getItem('prism-theme');if(s==='dark'||s==='light')t=s;}}catch(e){}document.documentElement.setAttribute('data-theme',t);})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="nav"><div class="navin">
+  <a class="brand" href="../index.html" aria-label="Seer home">
+    <svg class="crow" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M33.5 10.5 A16.5 16.5 0 1 0 33.5 37.5"/><path d="M38 2.5 L39.3 6.7 L43.5 8 L39.3 9.3 L38 13.5 L36.7 9.3 L32.5 8 L36.7 6.7 Z" fill="currentColor" stroke="none"/><path d="M16.5 36.5 C13.8 28.5 16.8 19.8 24.2 16.2 C27.6 14.5 31.6 14.8 34.2 17 L29.7 19.7 C31 22.7 30 26 27.4 28.1"/><path d="M18.6 28.6 C21.6 25.9 25.2 25.3 28.2 26.5"/><path d="M16.5 36.5 C19.8 38.2 23.8 38.3 27.2 36.8"/><path d="M17.2 35.8 L12.2 41.2"/><circle cx="27.6" cy="17.6" r="1.15" fill="currentColor" stroke="none"/></svg>
+    <span class="wordmark">SEER</span>
+  </a>
+  <a class="edition" href="../index.html" aria-label="PRISM edition home">
+    <svg viewBox="0 0 64 40" fill="none" aria-hidden="true"><path d="M27.5 19.2 L63 13.5 L63 18.6 L27.5 21 Z" fill="#EFE9FC"/><path d="M27.5 21 L63 19.6 L63 25.2 L27.5 22.8 Z" fill="#7D33FF"/><path d="M27.5 22.8 L63 26.2 L63 32 L27.5 24.6 Z" fill="#6C2BD9"/><path d="M32 3 L56 37 L8 37 Z" stroke="currentColor" stroke-width="1.8"/><path d="M32 3 L32 24 M32 24 L17.5 30.5 M32 24 L46.5 30.5 M17.5 30.5 L46.5 30.5" stroke="currentColor" stroke-width="1.1" opacity=".55"/><path d="M1 27 L27.5 20.6" stroke="currentColor" stroke-width="1.6"/></svg>
+    <span>PRISM</span>
+  </a>
+  <nav class="navlinks" aria-label="Interfaces">
+    <a href="../index.html">Home</a>
+    <a href="../app/index.html">App</a>
+    <a href="../deep/index.html">Deep</a>
+    <a href="index.html" aria-current="page">Futarchy</a>
+    <a href="../opportunity/index.html">Opportunity</a>
+    <a href="../risk/index.html">Risk</a>
+  </nav>
+  <div class="navright">
+    <button class="iconbtn" id="themeToggle" type="button" aria-pressed="false" aria-label="Switch to dark mode">
+      <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M20 13.2 A8.5 8.5 0 1 1 10.8 4 A6.8 6.8 0 0 0 20 13.2 Z"/></svg>
+      <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" style="display:none"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5 V5 M12 19 V21.5 M2.5 12 H5 M19 12 H21.5 M5 5 L6.8 6.8 M17.2 17.2 L19 19 M19 5 L17.2 6.8 M6.8 17.2 L5 19"/></svg>
+    </button>
+    <button class="btn btn-primary" type="button" data-wallet>Connect Wallet</button>
+    <button class="iconbtn navtoggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7 H20 M4 12 H20 M4 17 H20"/></svg>
+    </button>
+  </div>
+</div></header>
+
+<main><div class="wrap">
+  <div class="pagehead">
+    <p class="kicker">Futarchy · Markets know better than experts</p>
+    <h1>Two futures, flowing over each other.</h1>
+    <p class="lede">Market-based evaluation of governance decisions and milestones. Every proposal carries two conditional prices — the metric <em>if it passes</em> and <em>if it fails</em> — and the gap between them is the headline. In PRISM the two futures are two liquid layers: slide the passes price and watch one future rise over the other.</p>
+  </div>
+
+  <section style="padding-top:44px">
+    <div class="sec-head"><span class="idx">·</span><h2>Active milestones</h2><p>Open now · closes in 3d 11h</p></div>
+    <article class="card" style="padding:30px">
+      <p class="kicker">Ethereum · EIP-8363 · Metric: ETH price</p>
+      <h3 style="font-size:24px; max-width:760px">What will the impact on ETH price be if EIP-8363 is Scheduled for Inclusion in Hegotá?</h3>
+      <div class="impactline">
+        <div class="cell"><span>Impact</span><span class="big" id="impactVal">−0.00%</span></div>
+        <div class="cell"><span><i class="legenddot" style="background:#7D33FF"></i>If passes</span><b id="yesVal">2,383.35 USDS</b></div>
+        <div class="cell"><span><i class="legenddot" style="background:#8E8E99"></i>If fails</span><b>2,383.37 USDS</b></div>
+        <div class="cell"><span>Status</span><b>Open</b></div>
+      </div>
+      <div class="wavebox2" style="margin-top:10px">
+        <canvas id="flowCv" height="290" role="img" aria-label="Two flowing wave layers: the violet layer is the price if the proposal passes, the pale layer is the price if it fails"></canvas>
+        <span class="fieldtag">Flowing waves — the layers slide over each other</span>
+      </div>
+      <label for="domSlider" style="display:block; margin-top:22px; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink2)">Slide the “if passes” price — 2,300 → 2,470 USDS</label>
+      <input type="range" id="domSlider" min="2300" max="2470" step="0.01" value="2383.35" aria-describedby="impactVal">
+      <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:8px">
+        <button class="btn btn-primary" type="button" data-wallet>Trade this milestone</button>
+        <button class="btn btn-ghost" type="button" id="createBtn">Create market</button>
+      </div>
+    </article>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="sec-head"><span class="idx">·</span><h2>Recently closed</h2></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Proposal</th><th>Organization</th><th class="num">Impact</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>GIP-152</td><td>Gnosis DAO</td><td class="num">—</td><td>Awaiting resolution</td></tr>
+        <tr><td>GIP-151</td><td>Gnosis DAO</td><td class="num">—</td><td>Resolved</td></tr>
+        <tr><td>GIP-149</td><td>Gnosis DAO</td><td class="num">−2.36%</td><td>Resolved</td></tr>
+        <tr><td>GIP-145</td><td>Gnosis DAO</td><td class="num pos">+1.96%</td><td>Resolved</td></tr>
+        <tr><td>GIP-153</td><td>Gnosis DAO</td><td class="num pos">+0.98%</td><td>Resolved</td></tr>
+        <tr><td>KIP-90</td><td>Kleros DAO</td><td class="num pos">+0.68%</td><td>Resolved</td></tr>
+        <tr><td>KIP-88</td><td>Kleros DAO</td><td class="num pos">+0.91%</td><td>Resolved</td></tr>
+        <tr><td>KIP-86</td><td>Kleros DAO</td><td class="num pos">+0.94%</td><td>Resolved</td></tr>
+        <tr><td>KIP-81</td><td>Kleros DAO</td><td class="num pos">+99.98%</td><td>Resolved</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="sec-head"><span class="idx">·</span><h2>Organizations</h2></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Name</th><th class="num">Active</th><th class="num">Proposals</th><th>Chain</th><th class="num">Liquidity</th></tr></thead>
+      <tbody>
+        <tr><td>Gnosis DAO</td><td class="num">1</td><td class="num">6</td><td>Gnosis</td><td class="num">—</td></tr>
+        <tr><td>Kleros DAO</td><td class="num">0</td><td class="num">4</td><td>Gnosis</td><td class="num">—</td></tr>
+        <tr><td>Ethereum</td><td class="num">1</td><td class="num">1</td><td>Ethereum</td><td class="num">—</td></tr>
+        <tr><td>VeloraDAO</td><td class="num">0</td><td class="num">—</td><td>Ethereum</td><td class="num">—</td></tr>
+        <tr><td>Aave DAO</td><td class="num">0</td><td class="num">—</td><td>Ethereum</td><td class="num">—</td></tr>
+      </tbody>
+    </table></div>
+    <p style="color:var(--ink2); font-size:14px; margin-top:16px">The market informs; the DAO decides. A futarchy price is a signal about a decision — never the decision itself.</p>
+  </section>
+</div></main>
+
+<footer><div class="wrap">
+  <div class="foot-grid">
+    <div>
+      <svg class="crow" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M33.5 10.5 A16.5 16.5 0 1 0 33.5 37.5"/><path d="M38 2.5 L39.3 6.7 L43.5 8 L39.3 9.3 L38 13.5 L36.7 9.3 L32.5 8 L36.7 6.7 Z" fill="currentColor" stroke="none"/><path d="M16.5 36.5 C13.8 28.5 16.8 19.8 24.2 16.2 C27.6 14.5 31.6 14.8 34.2 17 L29.7 19.7 C31 22.7 30 26 27.4 28.1"/><path d="M18.6 28.6 C21.6 25.9 25.2 25.3 28.2 26.5"/><path d="M16.5 36.5 C19.8 38.2 23.8 38.3 27.2 36.8"/><path d="M17.2 35.8 L12.2 41.2"/><circle cx="27.6" cy="17.6" r="1.15" fill="currentColor" stroke="none"/></svg>
+      <p style="color:var(--ink2); font-size:14.5px; max-width:340px; margin:14px 0 0">Futarchy — market-based evaluation of governance decisions. Secured by Kleros.</p>
+    </div>
+    <div>
+      <h4>Interfaces</h4>
+      <ul>
+        <li><a href="../index.html">Homepage</a></li>
+        <li><a href="../app/index.html">Seer App</a></li>
+        <li><a href="../deep/index.html">Deep</a></li>
+        <li><a href="../opportunity/index.html">Opportunity Markets</a></li>
+        <li><a href="../risk/index.html">Risk Pricing</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="mailto:info@seer.pm">info@seer.pm</a></li>
+        <li><a href="https://github.com/seer-pm" rel="noopener">GitHub</a></li>
+        <li><a href="https://x.com/seer_pm" rel="noopener">X (Twitter)</a></li>
+        <li><a href="https://t.me/seer_pm" rel="noopener">Telegram</a></li>
+        <li><a href="https://discord.gg/seer" rel="noopener">Discord</a></li>
+        <li><a href="https://medium.com" rel="noopener">Medium</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-note">
+    <svg viewBox="0 0 64 40" fill="none" aria-hidden="true"><path d="M27.5 19.2 L63 13.5 L63 18.6 L27.5 21 Z" fill="#EFE9FC"/><path d="M27.5 21 L63 19.6 L63 25.2 L27.5 22.8 Z" fill="#7D33FF"/><path d="M27.5 22.8 L63 26.2 L63 32 L27.5 24.6 Z" fill="#6C2BD9"/><path d="M32 3 L56 37 L8 37 Z" stroke="currentColor" stroke-width="1.8"/><path d="M1 27 L27.5 20.6" stroke="currentColor" stroke-width="1.6"/></svg>
+    <span><strong>PRISM</strong> — a design concept for Seer in the Electric Foundation system. Not affiliated with Seer.</span>
+  </div>
+</div></footer>
+
+<script src="../assets/app.js"></script>
+<script>
+(function(){
+'use strict';
+var RM = window.PRISM_RM;
+var NO = 2383.37, yes = 2383.35;
+var slider=document.getElementById('domSlider');
+var impactEl=document.getElementById('impactVal'), yesEl=document.getElementById('yesVal');
+function fmtUSD(v){ return v.toLocaleString('en-US',{minimumFractionDigits:2, maximumFractionDigits:2}); }
+function upd(){
+  yes=parseFloat(slider.value);
+  var imp=(yes-NO)/NO*100;
+  var s=(imp<0?'\u2212':'+')+Math.abs(imp).toFixed(2)+'%';
+  impactEl.textContent=s;
+  yesEl.textContent=fmtUSD(yes)+' USDS';
+  if(RM) drawFlow(0);
+}
+slider.addEventListener('input', upd);
+/* ---------------- Flowing Waves ---------------- */
+var cv=document.getElementById('flowCv');
+function wavePath(c,w,base,amp,t,sp,ph){
+  c.beginPath(); c.moveTo(0,base + Math.sin(ph)*amp);
+  for(var x=0;x<=w;x+=6){
+    var y = base
+      + Math.sin(x*0.014 + t*sp + ph)*amp
+      + Math.sin(x*0.033 - t*sp*1.4 + ph*2)*amp*0.36;
+    c.lineTo(x,y);
+  }
+}
+function drawFlow(t){
+  var f=window.fitCanvas(cv,290), c=f.ctx, w=f.w, h=f.h;
+  c.clearRect(0,0,w,h);
+  var dark=window.prismTheme()==='dark';
+  var d=(yes-2300)/170; /* dominance 0..1 */
+  /* fails layer (pale) */
+  var baseF=h*0.52;
+  wavePath(c,w,baseF,13,t,0.5,2.1);
+  c.lineTo(w,h); c.lineTo(0,h); c.closePath();
+  c.fillStyle = dark? 'rgba(239,233,252,0.16)':'#EFE9FC'; c.fill();
+  wavePath(c,w,baseF,13,t,0.5,2.1);
+  c.strokeStyle = dark? 'rgba(239,233,252,0.75)':'#8E8E99'; c.lineWidth=1.6; c.stroke();
+  /* passes layer (violet) — rises with dominance */
+  var baseP = h*0.52 + (0.5-d)*h*0.34;
+  wavePath(c,w,baseP,15,t,0.72,0);
+  c.lineTo(w,h); c.lineTo(0,h); c.closePath();
+  c.fillStyle='rgba(125,51,255,0.88)'; c.fill();
+  wavePath(c,w,baseP,15,t,0.72,0);
+  c.strokeStyle = dark? '#EFE9FC':'#6C2BD9'; c.lineWidth=1.8; c.stroke();
+  /* labels ride the layers */
+  c.font='600 12px "IBM Plex Mono", monospace';
+  c.fillStyle = dark? '#EFE9FC':'#5C5C66';
+  c.fillText('IF FAILS · '+fmtUSD(NO)+' USDS', 16, Math.max(18, baseF-22));
+  c.fillStyle = '#FFFFFF';
+  c.fillText('IF PASSES · '+fmtUSD(yes)+' USDS', 16, Math.min(h-14, baseP+30));
+}
+window.animate(cv, drawFlow);
+window.onTheme(function(){ if(RM) drawFlow(0); });
+upd();
+document.getElementById('createBtn').addEventListener('click', function(){ toast('Demo only — market creation is disabled in this design concept.'); });
+})();
+</script>
+</body>
+</html>

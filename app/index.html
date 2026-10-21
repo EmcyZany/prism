@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seer App — PRISM</title>
+<meta name="description" content="PRISM concept: the Seer App explorer — every market, drawn as lines.">
+<script>(function(){var t='light';try{var q=new URLSearchParams(location.search).get('theme');if(q==='dark'||q==='light'){t=q;localStorage.setItem('prism-theme',t);}else{var s=localStorage.getItem('prism-theme');if(s==='dark'||s==='light')t=s;}}catch(e){}document.documentElement.setAttribute('data-theme',t);})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="nav"><div class="navin">
+  <a class="brand" href="../index.html" aria-label="Seer home">
+    <svg class="crow" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M33.5 10.5 A16.5 16.5 0 1 0 33.5 37.5"/><path d="M38 2.5 L39.3 6.7 L43.5 8 L39.3 9.3 L38 13.5 L36.7 9.3 L32.5 8 L36.7 6.7 Z" fill="currentColor" stroke="none"/><path d="M16.5 36.5 C13.8 28.5 16.8 19.8 24.2 16.2 C27.6 14.5 31.6 14.8 34.2 17 L29.7 19.7 C31 22.7 30 26 27.4 28.1"/><path d="M18.6 28.6 C21.6 25.9 25.2 25.3 28.2 26.5"/><path d="M16.5 36.5 C19.8 38.2 23.8 38.3 27.2 36.8"/><path d="M17.2 35.8 L12.2 41.2"/><circle cx="27.6" cy="17.6" r="1.15" fill="currentColor" stroke="none"/></svg>
+    <span class="wordmark">SEER</span>
+  </a>
+  <a class="edition" href="../index.html" aria-label="PRISM edition home">
+    <svg viewBox="0 0 64 40" fill="none" aria-hidden="true"><path d="M27.5 19.2 L63 13.5 L63 18.6 L27.5 21 Z" fill="#EFE9FC"/><path d="M27.5 21 L63 19.6 L63 25.2 L27.5 22.8 Z" fill="#7D33FF"/><path d="M27.5 22.8 L63 26.2 L63 32 L27.5 24.6 Z" fill="#6C2BD9"/><path d="M32 3 L56 37 L8 37 Z" stroke="currentColor" stroke-width="1.8"/><path d="M32 3 L32 24 M32 24 L17.5 30.5 M32 24 L46.5 30.5 M17.5 30.5 L46.5 30.5" stroke="currentColor" stroke-width="1.1" opacity=".55"/><path d="M1 27 L27.5 20.6" stroke="currentColor" stroke-width="1.6"/></svg>
+    <span>PRISM</span>
+  </a>
+  <nav class="navlinks" aria-label="Interfaces">
+    <a href="../index.html">Home</a>
+    <a href="index.html" aria-current="page">App</a>
+    <a href="../deep/index.html">Deep</a>
+    <a href="../futarchy/index.html">Futarchy</a>
+    <a href="../opportunity/index.html">Opportunity</a>
+    <a href="../risk/index.html">Risk</a>
+  </nav>
+  <div class="navright">
+    <button class="iconbtn" id="themeToggle" type="button" aria-pressed="false" aria-label="Switch to dark mode">
+      <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M20 13.2 A8.5 8.5 0 1 1 10.8 4 A6.8 6.8 0 0 0 20 13.2 Z"/></svg>
+      <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" style="display:none"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5 V5 M12 19 V21.5 M2.5 12 H5 M19 12 H21.5 M5 5 L6.8 6.8 M17.2 17.2 L19 19 M19 5 L17.2 6.8 M6.8 17.2 L5 19"/></svg>
+    </button>
+    <button class="btn btn-primary" type="button" data-wallet>Connect Wallet</button>
+    <button class="iconbtn navtoggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7 H20 M4 12 H20 M4 17 H20"/></svg>
+    </button>
+  </div>
+</div></header>
+
+<main><div class="wrap">
+  <div class="pagehead">
+    <p class="kicker">Seer App · The explorer</p>
+    <h1>Every market, one clear line.</h1>
+    <p class="lede">A next generation prediction marketplace — search markets, outcomes and collections across Gnosis and Ethereum. Prices here are drawn as waves, not charts: a market you can feel moving.</p>
+    <div class="band">
+      <canvas id="noiseBand" height="170" aria-hidden="true"></canvas>
+      <span class="fieldtag">Neural noise field — bends around your pointer · header band only, never behind data</span>
+    </div>
+  </div>
+
+  <div class="toolbar" role="search">
+    <input type="search" id="q" placeholder="Search by market, outcome or collection" aria-label="Search markets">
+    <div role="group" aria-label="Filter by market type" id="typeFilters">
+      <button class="fbtn" type="button" data-type="All" aria-pressed="true">All</button>
+      <button class="fbtn" type="button" data-type="Categorical" aria-pressed="false">Categorical</button>
+      <button class="fbtn" type="button" data-type="Scalar" aria-pressed="false">Scalar</button>
+      <button class="fbtn" type="button" data-type="Multi Scalar" aria-pressed="false">Multi Scalar</button>
+    </div>
+    <button class="btn btn-ghost btn-sm" type="button" id="createBtn">+ Create Market</button>
+  </div>
+
+  <div class="mgrid" id="mgrid" aria-live="polite"></div>
+  <p id="noresults" style="display:none; color:var(--ink2); margin-top:20px">No markets match that search.</p>
+
+  <div class="detail" id="detail" aria-live="polite">
+    <div class="wavebox">
+      <p class="kicker" style="margin-bottom:8px">Live price — as a wave</p>
+      <h3 id="dTitle">Market</h3>
+      <p style="color:var(--ink2); margin:0 0 8px; font-size:14px" id="dMeta"></p>
+      <canvas id="siriCv" height="190" aria-label="Animated layered wave lines showing the market price moving" role="img"></canvas>
+      <p style="color:var(--ink2); font-size:13px; margin:10px 0 0">Siri Wave — layered lines carry the price. No area chart, no candles; the wave <em>is</em> the quote.</p>
+    </div>
+    <form class="slip" id="slip">
+      <h4>Bet slip</h4>
+      <div class="row"><span>Leading outcome</span><b id="sOut">—</b></div>
+      <div class="row"><span>Price</span><b id="sPrice">—</b></div>
+      <label for="amt">Amount (USDS)</label>
+      <input type="number" id="amt" value="100" min="0" step="1">
+      <div class="chiprow" role="group" aria-label="Quick amounts">
+        <button type="button" data-add="1">+$1</button>
+        <button type="button" data-add="5">+$5</button>
+        <button type="button" data-add="20">+$20</button>
+        <button type="button" data-add="100">+$100</button>
+      </div>
+      <div class="row"><span>Est. shares</span><b id="sShares">—</b></div>
+      <div class="row"><span>Potential return</span><b id="sRet">—</b></div>
+      <button class="btn btn-primary" type="submit">Confirm</button>
+      <p style="font-size:12.5px; color:var(--ink2); margin:12px 0 0">Settled in outcome tokens (ERC1155 wrapped to ERC20), resolved by Reality.eth, disputes by Kleros.</p>
+    </form>
+  </div>
+
+  <section>
+    <div class="sec-head"><span class="idx">·</span><h2>How a card reads</h2><p>The anatomy of every market on Seer, kept from the live app.</p></div>
+    <div class="grid3">
+      <article class="card"><h3>Verified media</h3><p>Each card carries its Kleros Curate status — "SVG Image Verified" — so the image attached to a market is the one the curators approved.</p></article>
+      <article class="card"><h3>On-chain, inspectable</h3><p>"View contract on explorer" and the network link (Gnosisscan on Gnosis) sit on the card, not buried in a detail page.</p></article>
+      <article class="card"><h3>Conditional, labelled</h3><p>Conditional markets state their condition on the card itself — "Conditional on … being Yes/No" — and some markets carry a reward, e.g. 300.00k SEER/day.</p></article>
+    </div>
+  </section>
+</div></main>
+
+<footer><div class="wrap">
+  <div class="foot-grid">
+    <div>
+      <svg class="crow" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M33.5 10.5 A16.5 16.5 0 1 0 33.5 37.5"/><path d="M38 2.5 L39.3 6.7 L43.5 8 L39.3 9.3 L38 13.5 L36.7 9.3 L32.5 8 L36.7 6.7 Z" fill="currentColor" stroke="none"/><path d="M16.5 36.5 C13.8 28.5 16.8 19.8 24.2 16.2 C27.6 14.5 31.6 14.8 34.2 17 L29.7 19.7 C31 22.7 30 26 27.4 28.1"/><path d="M18.6 28.6 C21.6 25.9 25.2 25.3 28.2 26.5"/><path d="M16.5 36.5 C19.8 38.2 23.8 38.3 27.2 36.8"/><path d="M17.2 35.8 L12.2 41.2"/><circle cx="27.6" cy="17.6" r="1.15" fill="currentColor" stroke="none"/></svg>
+      <p style="color:var(--ink2); font-size:14.5px; max-width:340px; margin:14px 0 0">Seer, a next generation prediction marketplace. Secured by Kleros.</p>
+    </div>
+    <div>
+      <h4>Interfaces</h4>
+      <ul>
+        <li><a href="../index.html">Homepage</a></li>
+        <li><a href="../deep/index.html">Deep</a></li>
+        <li><a href="../futarchy/index.html">Futarchy</a></li>
+        <li><a href="../opportunity/index.html">Opportunity Markets</a></li>
+        <li><a href="../risk/index.html">Risk Pricing</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="mailto:info@seer.pm">info@seer.pm</a></li>
+        <li><a href="https://github.com/seer-pm" rel="noopener">GitHub</a></li>
+        <li><a href="https://x.com/seer_pm" rel="noopener">X (Twitter)</a></li>
+        <li><a href="https://t.me/seer_pm" rel="noopener">Telegram</a></li>
+        <li><a href="https://discord.gg/seer" rel="noopener">Discord</a></li>
+        <li><a href="https://medium.com" rel="noopener">Medium</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-note">
+    <svg viewBox="0 0 64 40" fill="none" aria-hidden="true"><path d="M27.5 19.2 L63 13.5 L63 18.6 L27.5 21 Z" fill="#EFE9FC"/><path d="M27.5 21 L63 19.6 L63 25.2 L27.5 22.8 Z" fill="#7D33FF"/><path d="M27.5 22.8 L63 26.2 L63 32 L27.5 24.6 Z" fill="#6C2BD9"/><path d="M32 3 L56 37 L8 37 Z" stroke="currentColor" stroke-width="1.8"/><path d="M1 27 L27.5 20.6" stroke="currentColor" stroke-width="1.6"/></svg>
+    <span><strong>PRISM</strong> — a design concept for Seer in the Electric Foundation system. Not affiliated with Seer.</span>
+  </div>
+</div></footer>
+
+<script src="../assets/app.js"></script>
+<script>
+(function(){
+'use strict';
+var RM = window.PRISM_RM;
+/* ---------------- Neural Noise Cursor — header band only ---------------- */
+var nb = document.getElementById('noiseBand');
+if(nb){
+  var nx=-9999, ny=-9999;
+  nb.addEventListener('pointermove', function(e){ var r=nb.getBoundingClientRect(); nx=e.clientX-r.left; ny=e.clientY-r.top; });
+  nb.addEventListener('pointerleave', function(){ nx=ny=-9999; });
+  function drawNoise(t){
+    var f=window.fitCanvas(nb,170), c=f.ctx, w=f.w, h=f.h;
+    c.clearRect(0,0,w,h);
+    var dark=window.prismTheme()==='dark', gap=19, len=11;
+    c.lineWidth=1.2;
+    for(var y=gap*0.6; y<h; y+=gap){
+      for(var x=gap*0.6; x<w; x+=gap){
+        var a = Math.sin(x*0.011 + t*0.35)*1.25 + Math.cos(y*0.017 - t*0.26)*1.25;
+        var dx=x-nx, dy=y-ny, d=Math.sqrt(dx*dx+dy*dy);
+        if(d<190){ var swirl=Math.exp(-d/150)*2.4; a += Math.atan2(dy,dx) + Math.PI/2 > a ? swirl*0.4 : -swirl*0.1; a += swirl*0.55; }
+        var x2=x+Math.cos(a)*len, y2=y+Math.sin(a)*len;
+        c.beginPath(); c.moveTo(x,y); c.lineTo(x2,y2);
+        c.strokeStyle = dark ? 'rgba(239,233,252,0.4)' : 'rgba(108,43,217,0.42)';
+        c.stroke();
+        c.beginPath(); c.arc(x2,y2,1.1,0,7); c.fillStyle='rgba(125,51,255,0.65)'; c.fill();
+      }
+    }
+  }
+  window.animate(nb, drawNoise);
+  window.onTheme(function(){ if(RM) drawNoise(0); });
+}
+/* ---------------- Market data (real questions from app.seer.pm) ---------------- */
+var MARKETS=[
+ {q:"Who will win Brazilian presidential election in 2026?", t:"Categorical", big:"34%", lab:"Leading outcome", p:34},
+ {q:"Which party or joint electoral list will win the most seats in Israeli Knesset election in 2026?", t:"Categorical", big:"28%", lab:"Leading outcome", p:28, reward:true},
+ {q:"Will the National Rally's candidate win the next French presidential election?", t:"Categorical", big:"41%", lab:"Yes", p:41, cond:"Conditional on \u201CWill Marine Le Pen be the National Rally's candidate\u2026?\u201D being \u201CYes\u201D"},
+ {q:"Will Marine Le Pen be the National Rally's candidate in the next French presidential election?", t:"Categorical", big:"63%", lab:"Yes", p:63},
+ {q:"How many seats in France's National Assembly will [party bloc] win in the next French legislative election?", t:"Multi Scalar", big:"182", lab:"Median seats / 577", p:32},
+ {q:"Will the National Rally's candidate win the next French presidential election?", t:"Categorical", big:"37%", lab:"Yes", p:37, cond:"Conditional on \u201CWill Marine Le Pen be the National Rally's candidate\u2026?\u201D being \u201CNo\u201D"},
+ {q:"Will Polymarket publicly release a fix for the negative-risk mint/merge share cost basis accounting issue before January 1, 2027?", t:"Categorical", big:"58%", lab:"Yes", p:58},
+ {q:"Will Polymarket's API allow retrieval of fees paid data per individual positions by January 1st 2027?", t:"Categorical", big:"44%", lab:"Yes", p:44},
+ {q:"Will Polymarket use an oracle other than UMA to resolve at least one subjective market before January 1, 2027?", t:"Categorical", big:"22%", lab:"Yes", p:22},
+ {q:"Will Polymarket's public API provide a documented endpoint providing total fees paid by individual user by January 1, 2027?", t:"Categorical", big:"39%", lab:"Yes", p:39},
+ {q:"Will any Kurdish militant group launch a confirmed armed attack inside Iran in 2026?", t:"Categorical", big:"18%", lab:"Yes", p:18},
+ {q:"How many Polymarket clarification notes published before January 1, 2027 will cause a market price move of at least 25 percentage points within 24 hours? [Note]", t:"Scalar", big:"3.4", lab:"Expected notes", p:34},
+ {q:"Will a legally binding treaty or agreement transferring sovereignty over Greenland from Denmark to the United States enter into force in 2026?", t:"Categorical", big:"12%", lab:"Yes", p:12},
+ {q:"Will the United States enter into armed hostilities with a NATO country over Greenland in 2026?", t:"Categorical", big:"3%", lab:"Yes", p:3},
+ {q:"Will a court rule against Polymarket in a lawsuit over an incorrect market resolution by the end of 2026?", t:"Categorical", big:"31%", lab:"Yes", p:31},
+ {q:"Will Polymarket distribute a transferable Polymarket cryptocurrency token to existing users before January 1st 2027?", t:"Categorical", big:"67%", lab:"Yes", p:67},
+ {q:"Will the Digital Asset Market Clarity Act be approved by the U.S. Senate, excluding committee approval, in 2026?", t:"Categorical", big:"46%", lab:"Yes", p:46},
+ {q:"What will be the average Ethereum BASEFEE (in gwei) for the period 1\u201331 January 2027 (UTC), as calculated from Ethereum block data on Dune Analytics? [gwei]", t:"Scalar", big:"11.8", lab:"Expected gwei", p:24},
+ {q:"Will Donald Trump issue an official presidential pardon for Ghislaine Maxwell by December 31st 2026?", t:"Categorical", big:"9%", lab:"Yes", p:9},
+ {q:"Will the U.S. Securities and Exchange Commission initiate a new enforcement action against Justin Sun in 2026 in connection with Binance-related trading activity?", t:"Categorical", big:"26%", lab:"Yes", p:26},
+ {q:"Who will win the 2026 South Sudanese presidential election?", t:"Categorical", big:"29%", lab:"Leading outcome", p:29},
+ {q:"Will GTA 6 achieve the highest first-day unit sales of any GTA game?", t:"Categorical", big:"71%", lab:"Yes", p:71},
+ {q:"Who will be elected as the Bosniak member of the Presidency of Bosnia and Herzegovina in 2026?", t:"Categorical", big:"38%", lab:"Leading outcome", p:38},
+ {q:"Which party will win the most seats in the United States Senate elections in 2026?", t:"Categorical", big:"52%", lab:"Leading outcome", p:52}
+];
+var grid=document.getElementById('mgrid'), nores=document.getElementById('noresults');
+var curType='All', curQ='';
+function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+function render(){
+  var shown=0;
+  grid.innerHTML = MARKETS.map(function(m,i){
+    var ok = (curType==='All'||m.t===curType) && m.q.toLowerCase().indexOf(curQ)>-1;
+    if(ok) shown++;
+    return '<button type="button" class="mcard" data-i="'+i+'" '+(ok?'':'hidden')+' aria-label="Open market: '+esc(m.q)+'">'
+      +'<span class="q">'+esc(m.q)+'</span>'
+      +(m.cond?'<span class="cond">'+esc(m.cond)+'</span>':'')
+      +'<span class="prob"><b>'+m.big+'</b><span>'+m.lab+'</span></span>'
+      +'<span class="meta"><span class="tag v">'+m.t+'</span>'
+      +(m.reward?'<span class="tag reward">Reward: 300.00k SEER/day</span>':'')
+      +'<span class="tag">SVG Image Verified · Kleros Curate</span></span>'
+      +'<span class="links"><span>Gnosisscan \u2197</span><span>View contract on explorer</span><span>Sign in to add to collection</span></span>'
+      +'</button>';
+  }).join('');
+  nores.style.display = shown? 'none':'block';
+  grid.querySelectorAll('.mcard').forEach(function(card){
+    card.addEventListener('click', function(){ openDetail(+card.getAttribute('data-i')); });
+  });
+}
+render();
+document.getElementById('q').addEventListener('input', function(e){ curQ=e.target.value.trim().toLowerCase(); render(); });
+document.getElementById('typeFilters').addEventListener('click', function(e){
+  var b=e.target.closest('[data-type]'); if(!b) return;
+  curType=b.getAttribute('data-type');
+  this.querySelectorAll('[data-type]').forEach(function(x){ x.setAttribute('aria-pressed', String(x===b)); });
+  render();
+});
+document.getElementById('createBtn').addEventListener('click', function(){ toast('Demo only — market creation is disabled in this design concept.'); });
+/* ---------------- Detail + Siri Wave + bet slip ---------------- */
+var detail=document.getElementById('detail'), siri=document.getElementById('siriCv');
+var cur=null, seed=3;
+function openDetail(i){
+  cur=MARKETS[i]; seed=3+i*1.7;
+  document.getElementById('dTitle').textContent=cur.q;
+  document.getElementById('dMeta').textContent=cur.t+' · Gnosis Chain · SVG Image Verified (Kleros Curate) · View contract on explorer'+(cur.reward?' · Reward: 300.00k SEER/day':'');
+  document.getElementById('sOut').textContent=cur.lab;
+  document.getElementById('sPrice').textContent=cur.big;
+  detail.classList.add('open');
+  updSlip();
+  detail.scrollIntoView({behavior: RM?'auto':'smooth', block:'nearest'});
+}
+function updSlip(){
+  if(!cur) return;
+  var amt=parseFloat(document.getElementById('amt').value)||0;
+  var price=Math.max(1,cur.p)/100;
+  var shares=amt/price;
+  document.getElementById('sShares').textContent=shares? shares.toFixed(2):'—';
+  document.getElementById('sRet').textContent=shares? shares.toFixed(2)+' USDS':'—';
+}
+document.getElementById('amt').addEventListener('input', updSlip);
+document.querySelectorAll('[data-add]').forEach(function(b){
+  b.addEventListener('click', function(){
+    var inp=document.getElementById('amt'); inp.value=(parseFloat(inp.value)||0)+(+b.getAttribute('data-add')); updSlip();
+  });
+});
+document.getElementById('slip').addEventListener('submit', function(e){ e.preventDefault(); toast('Demo only — no order is placed in this design concept.'); });
+function drawSiri(t){
+  var f=window.fitCanvas(siri,190), c=f.ctx, w=f.w, h=f.h;
+  c.clearRect(0,0,w,h);
+  var dark=window.prismTheme()==='dark';
+  var cols=['#7D33FF','#6C2BD9', dark?'#EFE9FC':'#8E8E99','#7D33FF'];
+  /* baseline price path feel: centre wanders with seed */
+  for(var L=0;L<4;L++){
+    c.beginPath();
+    for(var x=0;x<=w;x+=4){
+      var ph = t*(0.7+L*0.16);
+      var y = h*0.52
+        + Math.sin(x*0.016 + ph + seed + L*0.9)*(13+L*4)
+        + Math.sin(x*0.043 - ph*1.3 + seed*2)*(5+L*1.6)
+        + Math.sin(x*0.006 + seed)*(h*0.1)*(1 - x/w*0.4);
+      if(x===0) c.moveTo(x,y); else c.lineTo(x,y);
+    }
+    c.strokeStyle=cols[L]; c.globalAlpha= L===0?0.95:0.45; c.lineWidth= L===0?2.2:1.4; c.stroke();
+  }
+  c.globalAlpha=1;
+  /* live dot riding the main wave at the right edge */
+  var ly = h*0.52 + Math.sin(w*0.016 + t*0.7 + seed)*13 + Math.sin(w*0.043 - t*0.91 + seed*2)*5 + Math.sin(w*0.006+seed)*(h*0.1)*0.6;
+  c.beginPath(); c.arc(w-6, ly, 3.4, 0, 7); c.fillStyle='#7D33FF'; c.fill();
+}
+window.animate(siri, drawSiri);
+window.onTheme(function(){ if(RM) drawSiri(0); });
+})();
+</script>
+</body>
+</html>

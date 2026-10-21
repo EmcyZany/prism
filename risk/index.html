@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Risk Pricing — PRISM</title>
+<meta name="description" content="PRISM concept: Risk Pricing — a terrain of default risk, drawn as frozen contours.">
+<script>(function(){var t='light';try{var q=new URLSearchParams(location.search).get('theme');if(q==='dark'||q==='light'){t=q;localStorage.setItem('prism-theme',t);}else{var s=localStorage.getItem('prism-theme');if(s==='dark'||s==='light')t=s;}}catch(e){}document.documentElement.setAttribute('data-theme',t);})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="nav"><div class="navin">
+  <a class="brand" href="../index.html" aria-label="Seer home">
+    <svg class="crow" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M33.5 10.5 A16.5 16.5 0 1 0 33.5 37.5"/><path d="M38 2.5 L39.3 6.7 L43.5 8 L39.3 9.3 L38 13.5 L36.7 9.3 L32.5 8 L36.7 6.7 Z" fill="currentColor" stroke="none"/><path d="M16.5 36.5 C13.8 28.5 16.8 19.8 24.2 16.2 C27.6 14.5 31.6 14.8 34.2 17 L29.7 19.7 C31 22.7 30 26 27.4 28.1"/><path d="M18.6 28.6 C21.6 25.9 25.2 25.3 28.2 26.5"/><path d="M16.5 36.5 C19.8 38.2 23.8 38.3 27.2 36.8"/><path d="M17.2 35.8 L12.2 41.2"/><circle cx="27.6" cy="17.6" r="1.15" fill="currentColor" stroke="none"/></svg>
+    <span class="wordmark">SEER</span>
+  </a>
+  <a class="edition" href="../index.html" aria-label="PRISM edition home">
+    <svg viewBox="0 0 64 40" fill="none" aria-hidden="true"><path d="M27.5 19.2 L63 13.5 L63 18.6 L27.5 21 Z" fill="#EFE9FC"/><path d="M27.5 21 L63 19.6 L63 25.2 L27.5 22.8 Z" fill="#7D33FF"/><path d="M27.5 22.8 L63 26.2 L63 32 L27.5 24.6 Z" fill="#6C2BD9"/><path d="M32 3 L56 37 L8 37 Z" stroke="currentColor" stroke-width="1.8"/><path d="M32 3 L32 24 M32 24 L17.5 30.5 M32 24 L46.5 30.5 M17.5 30.5 L46.5 30.5" stroke="currentColor" stroke-width="1.1" opacity=".55"/><path d="M1 27 L27.5 20.6" stroke="currentColor" stroke-width="1.6"/></svg>
+    <span>PRISM</span>
+  </a>
+  <nav class="navlinks" aria-label="Interfaces">
+    <a href="../index.html">Home</a>
+    <a href="../app/index.html">App</a>
+    <a href="../deep/index.html">Deep</a>
+    <a href="../futarchy/index.html">Futarchy</a>
+    <a href="../opportunity/index.html">Opportunity</a>
+    <a href="index.html" aria-current="page">Risk</a>
+  </nav>
+  <div class="navright">
+    <button class="iconbtn" id="themeToggle" type="button" aria-pressed="false" aria-label="Switch to dark mode">
+      <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M20 13.2 A8.5 8.5 0 1 1 10.8 4 A6.8 6.8 0 0 0 20 13.2 Z"/></svg>
+      <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" style="display:none"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5 V5 M12 19 V21.5 M2.5 12 H5 M19 12 H21.5 M5 5 L6.8 6.8 M17.2 17.2 L19 19 M19 5 L17.2 6.8 M6.8 17.2 L5 19"/></svg>
+    </button>
+    <button class="btn btn-primary" type="button" data-wallet>Connect Wallet</button>
+    <button class="iconbtn navtoggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7 H20 M4 12 H20 M4 17 H20"/></svg>
+    </button>
+  </div>
+</div></header>
+
+<main><div class="wrap">
+  <div class="pagehead">
+    <p class="kicker">Risk Pricing · Secured by Kleros</p>
+    <h1>PRISM</h1>
+    <p style="margin:14px 0 0"><span class="swaplabel">Product · “Risk Pricing” — a swappable label, rename in progress</span></p>
+    <p class="lede" style="margin-top:18px">Risk, refracted into a clear spectrum. In this concept the product takes the name proposed for it — PRISM — and its page is a terrain map of default risk: contour lines, frozen. Nothing on this page loops or drifts; risk deserves a still surface.</p>
+  </div>
+
+  <div class="topoband" style="margin-top:34px">
+    <canvas id="topoCv" height="230" role="img" aria-label="Frozen topographic contour lines — a terrain map of risk"></canvas>
+    <div class="overlay">
+      <p class="kicker" style="margin-bottom:6px">Risk Pricing Predictions</p>
+      <p class="disp" style="font-size:clamp(19px,2.6vw,26px); font-weight:700; max-width:720px">What is the yearly Probability of Default (PD) for the following DeFi assets during <span id="qLabel">Q3 2026</span>?</p>
+    </div>
+  </div>
+
+  <div style="display:flex; gap:18px; flex-wrap:wrap; align-items:center; margin-top:30px">
+    <div class="qtoggle" role="group" aria-label="Quarter">
+      <button type="button" id="q3Btn" aria-pressed="true">Q3 2026 · Ended</button>
+      <button type="button" id="q4Btn" aria-pressed="false">Q4 2026 · Preview</button>
+    </div>
+    <p class="mono" id="periodLine" style="font-size:13.5px; color:var(--ink2); margin:0">Trading Period: Until Wednesday, 30 September 2026 at 23:59 UTC · Countdown: Ended</p>
+  </div>
+
+  <section style="padding-top:44px">
+    <div class="sec-head"><span class="idx">·</span><h2>Compare the protocols</h2><p>What is the probability? Estimate the risk level of the following protocols — market-implied PDs are meant to be compared across protocols, not read alone.</p></div>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Protocol</th><th class="num">Yearly PD</th><th class="num">vs previous quarter</th><th>Terrain</th></tr></thead>
+      <tbody id="pdBody"></tbody>
+    </table></div>
+    <p style="color:var(--ink2); font-size:13px; margin-top:12px">Protocol rows are illustrative demo data in this concept — on the live product they render from its API, which did not expose them to extraction.</p>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="grid2">
+      <article class="card">
+        <h3>Participate</h3>
+        <p style="margin-bottom:16px">Set estimates for the protocols below — you can choose how many protocols you want to predict. Note that the same capital can be used to predict on all protocols at once.</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap">
+          <button class="btn btn-primary btn-sm" type="button" id="uploadBtn">Upload CSV Predictions</button>
+          <button class="btn btn-ghost btn-sm" type="button" id="dlBtn">Download latest data (CSV)</button>
+        </div>
+        <p style="font-size:13px; margin-top:14px">Latest data updated in the last 24 hours, in CSV format.</p>
+      </article>
+      <article class="card">
+        <h3>Advanced</h3>
+        <p style="margin-bottom:16px">Check the opportunities if you want to LP or Trade specific outcome tokens in Seer.</p>
+        <a class="btn btn-ghost btn-sm" href="../app/index.html">Check it out →</a>
+        <p style="font-size:13px; margin-top:14px">Guide, email notifications and Help are available on the live product. Secured by Kleros.</p>
+      </article>
+    </div>
+  </section>
+</div></main>
+
+<footer><div class="wrap">
+  <div class="foot-grid">
+    <div>
+      <svg class="crow" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M33.5 10.5 A16.5 16.5 0 1 0 33.5 37.5"/><path d="M38 2.5 L39.3 6.7 L43.5 8 L39.3 9.3 L38 13.5 L36.7 9.3 L32.5 8 L36.7 6.7 Z" fill="currentColor" stroke="none"/><path d="M16.5 36.5 C13.8 28.5 16.8 19.8 24.2 16.2 C27.6 14.5 31.6 14.8 34.2 17 L29.7 19.7 C31 22.7 30 26 27.4 28.1"/><path d="M18.6 28.6 C21.6 25.9 25.2 25.3 28.2 26.5"/><path d="M16.5 36.5 C19.8 38.2 23.8 38.3 27.2 36.8"/><path d="M17.2 35.8 L12.2 41.2"/><circle cx="27.6" cy="17.6" r="1.15" fill="currentColor" stroke="none"/></svg>
+      <p style="color:var(--ink2); font-size:14.5px; max-width:340px; margin:14px 0 0">Risk Pricing Predictions — yearly Probability of Default for DeFi assets. Secured by Kleros.</p>
+    </div>
+    <div>
+      <h4>Interfaces</h4>
+      <ul>
+        <li><a href="../index.html">Homepage</a></li>
+        <li><a href="../app/index.html">Seer App</a></li>
+        <li><a href="../deep/index.html">Deep</a></li>
+        <li><a href="../futarchy/index.html">Futarchy</a></li>
+        <li><a href="../opportunity/index.html">Opportunity Markets</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="mailto:info@seer.pm">info@seer.pm</a></li>
+        <li><a href="https://github.com/seer-pm" rel="noopener">GitHub</a></li>
+        <li><a href="https://x.com/seer_pm" rel="noopener">X (Twitter)</a></li>
+        <li><a href="https://t.me/seer_pm" rel="noopener">Telegram</a></li>
+        <li><a href="https://discord.gg/seer" rel="noopener">Discord</a></li>
+        <li><a href="https://medium.com" rel="noopener">Medium</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-note">
+    <svg viewBox="0 0 64 40" fill="none" aria-hidden="true"><path d="M27.5 19.2 L63 13.5 L63 18.6 L27.5 21 Z" fill="#EFE9FC"/><path d="M27.5 21 L63 19.6 L63 25.2 L27.5 22.8 Z" fill="#7D33FF"/><path d="M27.5 22.8 L63 26.2 L63 32 L27.5 24.6 Z" fill="#6C2BD9"/><path d="M32 3 L56 37 L8 37 Z" stroke="currentColor" stroke-width="1.8"/><path d="M1 27 L27.5 20.6" stroke="currentColor" stroke-width="1.6"/></svg>
+    <span><strong>PRISM</strong> — a design concept for Seer in the Electric Foundation system. Not affiliated with Seer.</span>
+  </div>
+</div></footer>
+
+<script src="../assets/app.js"></script>
+<script>
+(function(){
+'use strict';
+/* ---------------- Topographic Flow — FROZEN frame ----------------
+   Drawn once per theme/resize. No animation loop on this page.      */
+var cv=document.getElementById('topoCv');
+function field(x,y){
+  return Math.sin(x*0.011+1.3)*Math.cos(y*0.013+0.4)
+       + 0.7*Math.sin((x+y)*0.0055)
+       + 0.55*Math.cos(Math.sqrt(Math.pow(x-260,2)+Math.pow(y-60,2))*0.02)
+       + 0.4*Math.sin(x*0.003-y*0.008);
+}
+function drawTopo(){
+  var f=window.fitCanvas(cv,230), c=f.ctx, w=f.w, h=f.h;
+  c.clearRect(0,0,w,h);
+  var dark=window.prismTheme()==='dark', step=15;
+  var nx=Math.ceil(w/step), ny=Math.ceil(h/step), g=[], i, j;
+  for(j=0;j<=ny;j++){ g.push([]); for(i=0;i<=nx;i++) g[j].push(field(i*step, j*step)); }
+  function lerp(a,b,va,vb,L){ var t=(L-va)/((vb-va)||1e-6); return a+(b-a)*t; }
+  c.lineWidth=1;
+  for(var L=-1.9; L<=1.9; L+=0.30){
+    var violet = Math.abs(L-0.3)<0.16 || Math.abs(L+0.9)<0.16;
+    c.strokeStyle = violet ? 'rgba(125,51,255,0.5)' : (dark? 'rgba(239,233,252,0.20)':'rgba(20,18,35,0.16)');
+    c.beginPath();
+    for(j=0;j<ny;j++) for(i=0;i<nx;i++){
+      var x0=i*step, y0=j*step, x1=x0+step, y1=y0+step;
+      var a=g[j][i], b=g[j][i+1], cc=g[j+1][i+1], d=g[j+1][i];
+      var idx=0; if(a>L)idx|=8; if(b>L)idx|=4; if(cc>L)idx|=2; if(d>L)idx|=1;
+      if(idx===0||idx===15) continue;
+      var top=[lerp(x0,x1,a,b,L), y0], right=[x1, lerp(y0,y1,b,cc,L)],
+          bot=[lerp(x0,x1,d,cc,L), y1], left=[x0, lerp(y0,y1,a,d,L)];
+      var seg={1:[left,bot],2:[bot,right],3:[left,right],4:[top,right],5:[left,top],6:[top,bot],7:[left,top],
+               8:[top,left],9:[top,bot],10:[top,right],11:[top,right],12:[left,right],13:[bot,right],14:[left,bot]};
+      var s=seg[idx]; if(!s) continue;
+      c.moveTo(s[0][0], s[0][1]); c.lineTo(s[1][0], s[1][1]);
+      if(idx===5||idx===10){ c.moveTo(top[0],top[1]); c.lineTo(right[0],right[1]); }
+    }
+    c.stroke();
+  }
+}
+drawTopo();
+window.onTheme(drawTopo);
+var rto; window.addEventListener('resize', function(){ clearTimeout(rto); rto=setTimeout(drawTopo, 180); });
+/* ---------------- PD table + quarter toggle ---------------- */
+var DATA={
+ q3:[["Aave",1.84,-0.12],["Compound",2.12,0.08],["Sky",1.47,-0.05],["Lido",0.92,-0.03],["Morpho",2.68,0.21],["Curve",3.05,0.14],["Uniswap",1.63,-0.09],["Spark",2.31,0.06],["Ethena",3.87,0.33],["Frax",2.94,-0.17]],
+ q4:[["Aave",1.79,0],["Compound",2.05,0],["Sky",1.44,0],["Lido",0.90,0],["Morpho",2.61,0],["Curve",2.98,0],["Uniswap",1.58,0],["Spark",2.27,0],["Ethena",3.79,0],["Frax",2.88,0]]
+};
+var body=document.getElementById('pdBody');
+function terrain(pd){ return pd<1.5? 'Low ground':(pd<2.6? 'Mid slope':'High ridge'); }
+function renderPD(q){
+  body.innerHTML=DATA[q].map(function(r){
+    var chg = q==='q4' ? '<span style="color:var(--ink2)">preview</span>'
+      : '<span class="'+(r[2]<=0?'pos':'')+'">'+(r[2]>0?'+':'−')+Math.abs(r[2]).toFixed(2)+'%</span>';
+    return '<tr><td><strong>'+r[0]+'</strong></td><td class="num pos" style="font-size:16px">'+r[1].toFixed(2)+'%</td><td class="num">'+chg+'</td><td>'+terrain(r[1])+'</td></tr>';
+  }).join('');
+}
+var q3=document.getElementById('q3Btn'), q4=document.getElementById('q4Btn');
+var period=document.getElementById('periodLine'), qLabel=document.getElementById('qLabel');
+function setQ(q){
+  q3.setAttribute('aria-pressed', String(q==='q3'));
+  q4.setAttribute('aria-pressed', String(q==='q4'));
+  renderPD(q);
+  if(q==='q3'){ period.textContent='Trading Period: Until Wednesday, 30 September 2026 at 23:59 UTC · Countdown: Ended'; qLabel.textContent='Q3 2026'; }
+  else{ period.textContent='Q4 2026 — coming soon on the live product · Preview estimates shown'; qLabel.textContent='Q4 2026'; }
+}
+q3.addEventListener('click', function(){ setQ('q3'); });
+q4.addEventListener('click', function(){ setQ('q4'); });
+setQ('q3');
+document.getElementById('dlBtn').addEventListener('click', function(){
+  var csv='protocol,yearly_pd_percent\n'+DATA.q3.map(function(r){ return r[0]+','+r[1].toFixed(2); }).join('\n');
+  window.downloadText('risk-pricing-pd-q3-2026.csv', csv);
+  toast('Latest data downloaded (CSV) — demo data in this concept.');
+});
+document.getElementById('uploadBtn').addEventListener('click', function(){ toast('Demo only — CSV prediction upload is disabled in this design concept.'); });
+})();
+</script>
+</body>
+</html>
